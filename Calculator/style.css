@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #34495e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 0 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.calculator-container {
+    perspective: 1000px;
+    max-width: 90vw;
+    width: auto;
+    margin-top: 5rem;
+}
+
+.calculator {
+    width: 100%;
+    min-width: 50vw;
+    min-height: 70vh;   /* Minimum 50% of viewport width */
+    max-width: 500px;   
+    background-color: white;   /* Maximum size for very large screens */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator:hover {
+    /* transform: translateY(-5px); */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.display {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: right;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 30%;
+    /* Minimum display area height */
+}
+
+.previous-operand {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    opacity: 0.8;
+    word-wrap: break-word;
+    flex-shrink: 0;
+}
+
+.current-operand {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    flex-grow: 2;
+    /* Takes remaining space */
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 15px 0;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: white;
+    color: #2c3e50;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 48px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.number {
+    background-color: white;
+}
+
+.number:hover {
+    background-color: #f0f0f0;
+}
+
+.operator {
+    background-color: #3498db;
+    ;
+    color: white;
+}
+
+.operator:hover {
+    background-color: #2980b9;
+}
+
+#equals {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#equals:hover {
+    background-color: #c0392b;
+}
+
+#ac, #delete {
+    background-color: #95a5a6;
+    color: white;
+}
+
+#ac:hover, #delete:hover {
+    background-color: #7f8c8d;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+/* Mobile Phones */
+@media (max-width: 600px) {
+    .calculator {
+        min-width: 90vw;
+        min-height: auto;
+        max-height: 80vh;
+    }
+
+    .buttons {
+        gap: 8px;
+        padding: 15px;
+    }
+
+    button {
+        padding: 12px 0;
+    }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .calculator {
+        min-width: 60vw;
+        min-height: 60vh;
+    }
+}
+
+/* Animation for button press */
+@keyframes buttonPress {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.button-press {
+    animation: buttonPress 0.2s ease;
+}
