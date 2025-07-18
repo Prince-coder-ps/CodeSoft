@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Cartoon Club</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="join-form-section">
+    <div class="container">
+        <div class="form-container">
+            <h2>Join the Cartoon Club!</h2>
+            <p>Get exclusive access to content, merchandise discounts, and more!</p>
+            
+            <form class="join-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">Your Age</label>
+                    <select id="age" required>
+                        <option value="" disabled selected>Select age group</option>
+                        <option value="child">Under 12</option>
+                        <option value="teen">13-19</option>
+                        <option value="adult">20+</option>
+                    </select>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="newsletter">
+                    <label for="newsletter">Subscribe to our newsletter</label>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">terms and conditions</a></label>
+                </div>
+                
+                <button type="submit" class="submit-btn">Join Now!</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<style>
+
+</style>
+</body>
+</html>
